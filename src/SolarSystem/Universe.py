@@ -19,6 +19,7 @@ class Universe(object):
         :return:
         '''
         self.base = base
+        base.setBackgroundColor(0, 0, 0)
 
 
     def initSky(self):
@@ -32,24 +33,6 @@ class Universe(object):
         self.sky.reparentTo(render)
         # Scale the size of the sky.
         self.sky.setScale(40)
-
-    def displayOverlay(self):
-        '''
-        Displays a Overlay text in the bottom corner right
-
-        :return:
-        '''
-        # Create some text overlayed on our screen.
-        # We will use similar commands in all of our tutorials to create titles and
-        # instruction guides.
-        self.title = OnscreenText(
-            text="Fock & Polydor - Solar System",
-            parent=base.a2dBottomRight, align=TextNode.A_right,
-            style=1, fg=(1, 1, 1, 1), pos=(-0.1, 0.1), scale=.07)
-
-        # Make the background color black (R=0, G=0, B=0)
-        # instead of the default grey
-        base.setBackgroundColor(0, 0, 0)
 
 
 

@@ -1,45 +1,33 @@
-from src.SolarSystem.Planets import Sun
 from direct.showbase.ShowBase import ShowBase
+from direct.showbase.DirectObject import DirectObject
 
-import Planets.Earth
-import Planets.Mercury
-import Planets.Mars
-import Planets.Venus
 import CameraHandler
 import Universe
+import CelestialBody
+import ActionHandler
+
+class Main(DirectObject):
+    sizescale = 0.6
+    orbitscale = 10
+    yearscale = 60
+    dayscale = yearscale / 365.0 * 5
+
+    base = ShowBase()
+
+    camera = CameraHandler.CameraHandler(base)
 
 
-sizescale = 0.6
-orbitscale = 10
-yearscale = 60
-dayscale = yearscale / 365.0 * 5
+    u = Universe.Universe(base)
+    u.initSky()
 
-base = ShowBase()
+    cb = CelestialBody.CelestialBody(sizescale, orbitscale, yearscale, dayscale)
 
-camera = CameraHandler.CameraHandler(base)
+    cb.loadAllCelestialBodys()
+    cb.rotateAllCelestialBodys()
 
-u = Universe.Universe(base)
-u.displayOverlay()
-u.initSky()
+    action = ActionHandler.ActionHandler(base, cb.cbAtt, cb.cbAttDic)
+    action.displayLayout()
+    action.activateAction()
 
-sun = Sun.Sun(sizescale)
-sun.loadPlanet()
-sun.rotatePlanets()
 
-mer = Planets.Mercury.Mercury(sizescale, orbitscale, yearscale, dayscale)
-mer.loadPlanet()
-mer.rotatePlanets()
-
-venus = Planets.Venus.Venus(sizescale, orbitscale, yearscale, dayscale)
-venus.loadPlanet()
-venus.rotatePlanets()
-
-earth = Planets.Earth.Earth(sizescale, orbitscale, yearscale, dayscale)
-earth.loadPlanet()
-earth.rotatePlanets()
-
-mars = Planets.Mars.Mars(sizescale, orbitscale, yearscale, dayscale)
-mars.loadPlanet()
-mars.rotatePlanets()
-
-base.run()
+    base.run()
