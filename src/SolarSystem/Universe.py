@@ -19,7 +19,50 @@ class Universe(object):
         :return:
         '''
         self.base = base
+
+        plight = PointLight('plight')
+        plight.setColor(VBase4(0.8, 0.8, 0.8, 1))
+        plnp = render.attachNewNode(plight)
+        plnp.setPos(0, 0, 5)
+        render.setLight(plnp)
+
+        plight2 = PointLight('plight')
+        plight2.setColor(VBase4(0.8, 0.8, 0.8, 1))
+        plnp2 = render.attachNewNode(plight2)
+        plnp2.setPos(0, 0, -5)
+        render.setLight(plnp2)
+
+        plight3 = PointLight('plight')
+        plight3.setColor(VBase4(0.8, 0.8, 0.8, 1))
+        plnp3 = render.attachNewNode(plight3)
+        plnp3.setPos(5, 0, 0)
+        render.setLight(plnp3)
+
+        plight4 = PointLight('plight')
+        plight4.setColor(VBase4(0.8, 0.8, 0.8, 1))
+        plnp4 = render.attachNewNode(plight4)
+        plnp4.setPos(-5, 0, 0)
+        render.setLight(plnp4)
+
+        plight5 = PointLight('plight')
+        plight5.setColor(VBase4(0.8, 0.8, 0.8, 1))
+        plnp5 = render.attachNewNode(plight5)
+        plnp5.setPos(0, -5, 0)
+        render.setLight(plnp5)
+
+        plight6 = PointLight('plight')
+        plight6.setColor(VBase4(0.8, 0.8, 0.8, 1))
+        plnp6 = render.attachNewNode(plight6)
+        plnp6.setPos(0, 5, 0)
+        render.setLight(plnp6)
+        #render.setShaderAuto()
         base.setBackgroundColor(0, 0, 0)
+        base.cam.lookAt(0, 0, 0)
+
+
+
+        # Important! Enable the shader generator.
+        # render.setShaderAuto()
 
 
     def initSky(self):
