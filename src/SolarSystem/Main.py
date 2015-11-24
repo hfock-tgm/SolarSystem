@@ -16,18 +16,15 @@ class Main(DirectObject):
 
     camera = CameraHandler.CameraHandler(base)
 
-
     u = Universe.Universe(base)
     u.initSky()
 
     cb = CelestialBody.CelestialBody(sizescale, orbitscale, yearscale, dayscale)
-
     cb.loadAllCelestialBodys()
     cb.rotateAllCelestialBodys()
 
-    action = ActionHandler.ActionHandler(base, cb.cbAtt, cb.cbAttDic, yearscale)
-    action.displayLayout()
-    action.activateAction()
+    action = ActionHandler.ActionHandler(base, cb.cbAtt, cb.cbAttDic)
+    action.initAll()
 
 
     base.run()

@@ -9,13 +9,35 @@ class ActionHandler(DirectObject):
     def genLabelText(self, text, i):
         return OnscreenText(text=text, pos=(0.06, -.06 * (i + 0.5)), fg=(1, 1, 1, 1),
                             parent=base.a2dTopLeft,align=TextNode.ALeft, scale=.05)
-    def __init__(self, base, cbAtt, cbAttDic, yearscale):
+    def __init__(self, base, cbAtt, cbAttDic):
         DirectObject.__init__(self)
         self.base = base
         self.cbAtt = cbAtt
         self.cbAttDic = cbAttDic
-        self.yearscale = yearscale
 
+        self.spaceKeyEventText = 0
+        self.skeyEventText = 0
+        self.ykeyEventText = 0
+        self.vkeyEventText = 0
+        self.ekeyEventText = 0
+        self.mkeyEventText = 0
+        self.speedUpText = 0
+        self.slowDownText = 0
+
+        self.simRunning = True
+
+    def initAll(self):
+        self.displayLayout()
+        self.displayLayoutAction()
+        self.activateAction()
+
+    def displayLayout(self):
+        self.title = OnscreenText(
+            text="Fock & Polydor - SolarSystem",
+            parent=base.a2dBottomRight, align=TextNode.A_right,
+            style=1, fg=(1, 1, 1, 1), pos=(-0.1, 0.1), scale=.07)
+
+    def displayLayoutAction(self):
         self.spaceKeyEventText = self.genLabelText(
             "[SPACE]: Toggle entire Solar System [RUNNING]", 1)
         self.skeyEventText = self.genLabelText("Sun [RUNNING]", 2)
@@ -25,14 +47,6 @@ class ActionHandler(DirectObject):
         self.mkeyEventText = self.genLabelText("Mars [RUNNING]", 6)
         self.speedUpText = self.genLabelText("[J] SPEED UP!", 7)
         self.slowDownText = self.genLabelText("[K] slow down...", 8)
-
-        self.simRunning = True
-
-    def displayLayout(self):
-        self.title = OnscreenText(
-            text="Fock & Polydor - SolarSystem",
-            parent=base.a2dBottomRight, align=TextNode.A_right,
-            style=1, fg=(1, 1, 1, 1), pos=(-0.1, 0.1), scale=.07)
 
     def activateAction(self):
         self.accept("escape", sys.exit)

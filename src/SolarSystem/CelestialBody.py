@@ -15,6 +15,7 @@ class CelestialBody(object):
         self.loadEarth()
         self.loadMoon()
         self.loadMars()
+        self.loadJupiter()
 
     def rotateAllCelestialBodys(self):
         self.rotateSun()
@@ -23,13 +24,20 @@ class CelestialBody(object):
         self.rotateEarth()
         self.rotateMoon()
         self.rotateMars()
+        self.rotateJupiter()
 
 
     def loadSun(self):
+        # Hier wird die Form fuer die Sonne geladen
+        # In diesem Fall ist eine planet_sphere
         self.sun = loader.loadModel("../../models/planet_sphere")
+        # Hier wird die Sonne ins Zentrum des SolarSystems platziert
         self.sun.reparentTo(render)
+        # Hier wird der Sonne die gelbe Sonnen Textur geladen
         self.sun_tex = loader.loadTexture("../../models/sun_1k_tex.jpg")
+        # Hier wird die Textur gesetzt
         self.sun.setTexture(self.sun_tex, 1)
+        # Hier wird die Groesse des Himmelskoerper gesetzt
         self.sun.setScale(2 * self.sizescale)
     # end loadSun
 
@@ -44,6 +52,7 @@ class CelestialBody(object):
     # end rotateSun
 
     def loadEarth(self):
+        #Hier wird die Erde an die Sonne/render (den Mittelpunkt) angehaengt
         self.orbit_root_earth = render.attachNewNode('orbit_root_earth')
         # Load earth
         self.earth = loader.loadModel("../../models/planet_sphere")
@@ -73,6 +82,7 @@ class CelestialBody(object):
 
 
     def loadMoon(self):
+        # Hier wird der Mond an die Erde gehaengt
         self.orbit_root_moon = (
             self.orbit_root_earth.attachNewNode('orbit_root_moon'))
 
@@ -180,3 +190,29 @@ class CelestialBody(object):
 
         self.cbAttDic["venusDay"] = self.day_period_venus
         self.cbAttDic["venusOrbit"] = self.orbit_period_venus
+
+    def loadJupiter(self):
+        self.orbit_root_jupiter = render.attachNewNode('orbit_root_jupiter')
+
+        # Load jupiter
+        self.jupiter = loader.loadModel("../../models/planet_sphere")
+        self.jupiter_tex = loader.loadTexture("../../models/jupiter.jpg")
+        self.jupiter.setTexture(self.jupiter_tex, 1)
+        self.jupiter.reparentTo(self.orbit_root_jupiter)
+        self.jupiter.setPos(2 * self.orbitscale, 0, 0)
+        self.jupiter.setScale(0.923 * self.sizescale)
+
+    def rotateJupiter(self):
+        self.orbit_period_jupiter = self.orbit_root_jupiter.hprInterval(
+            (3 * self.yearscale), (360, 0, 0))
+        self.day_period_jupiter = self.jupiter.hprInterval(
+            (23 * self.dayscale), (360, 0, 0))
+
+        self.orbit_period_jupiter.loop()
+        self.day_period_jupiter.loop()
+
+        self.cbAtt.append(self.orbit_period_jupiter)
+        self.cbAtt.append(self.day_period_jupiter)
+
+        self.cbAttDic["jupiterDay"] = self.day_period_jupiter
+        self.cbAttDic["jupiterOrbit"] = self.orbit_period_jupiter
