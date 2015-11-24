@@ -25,7 +25,7 @@ class Main(DirectObject):
     cb.loadAllCelestialBodys()
     cb.rotateAllCelestialBodys()
 
-    action = ActionHandler.ActionHandler(base, cb.cbAtt, cb.cbAttDic)
+    action = ActionHandler.ActionHandler(base, cb.cbAtt, cb.cbAttDic, yearscale)
     action.displayLayout()
     action.activateAction()
 

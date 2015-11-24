@@ -9,23 +9,23 @@ class ActionHandler(DirectObject):
     def genLabelText(self, text, i):
         return OnscreenText(text=text, pos=(0.06, -.06 * (i + 0.5)), fg=(1, 1, 1, 1),
                             parent=base.a2dTopLeft,align=TextNode.ALeft, scale=.05)
-    def __init__(self, base, cbAtt, cbAttDic):
+    def __init__(self, base, cbAtt, cbAttDic, yearscale):
         DirectObject.__init__(self)
         self.base = base
         self.cbAtt = cbAtt
         self.cbAttDic = cbAttDic
+        self.yearscale = yearscale
 
         self.spaceKeyEventText = self.genLabelText(
-            "SPACE: Toggle entire Solar System [RUNNING]", 1)
-        self.skeyEventText = self.genLabelText("[S]: Toggle Sun [RUNNING]", 2)
-        self.ykeyEventText = self.genLabelText("[Y]: Toggle Mercury [RUNNING]", 3)
-        self.vkeyEventText = self.genLabelText("[V]: Toggle Venus [RUNNING]", 4)
+            "[SPACE]: Toggle entire Solar System [RUNNING]", 1)
+        self.skeyEventText = self.genLabelText("Sun [RUNNING]", 2)
+        self.ykeyEventText = self.genLabelText("Mercury [RUNNING]", 3)
+        self.vkeyEventText = self.genLabelText("Venus [RUNNING]", 4)
         self.ekeyEventText = self.genLabelText("[E]: Toggle Earth [RUNNING]", 5)
-        self.mkeyEventText = self.genLabelText("[M]: Toggle Mars [RUNNING]", 6)
-        self.yearCounterText = self.genLabelText("0 Earth years completed", 7)
-        self.text = self.genLabelText("Test", 8)
+        self.mkeyEventText = self.genLabelText("Mars [RUNNING]", 6)
+        self.speedUpText = self.genLabelText("[J] SPEED UP!", 7)
+        self.slowDownText = self.genLabelText("[K] slow down...", 8)
 
-        self.yearCounter = 0  # year counter for earth years
         self.simRunning = True
 
     def displayLayout(self):
@@ -38,6 +38,14 @@ class ActionHandler(DirectObject):
         self.accept("escape", sys.exit)
         self.accept("e", self.handleEarth)
         self.accept("space", self.handleAll)
+        self.accept("j", self.speedUp)
+        self.accept("k", self.slowDown)
+
+    def speedUp(self):
+        print ("SpeedUP")
+
+    def slowDown(self):
+        print ("SlowDown")
 
     def handleEarth(self):
         self.togglePlanet("Earth", self.cbAttDic["earthDay"],
