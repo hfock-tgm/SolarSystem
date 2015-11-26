@@ -15,6 +15,7 @@ class ActionHandler(DirectObject):
         self.cbAtt = cbAtt
         self.cbAttDic = cbAttDic
 
+        self.instructionText = 0
         self.spaceKeyEventText = 0
         self.skeyEventText = 0
         self.ykeyEventText = 0
@@ -25,6 +26,7 @@ class ActionHandler(DirectObject):
         self.slowDownText = 0
 
         self.simRunning = True
+        self.instruction = 0
 
     def initAll(self):
         self.displayLayout()
@@ -38,15 +40,33 @@ class ActionHandler(DirectObject):
             style=1, fg=(1, 1, 1, 1), pos=(-0.1, 0.1), scale=.07)
 
     def displayLayoutAction(self):
+        self.instructionText = self.genLabelText("[I]: Hide Instructions", 1)
         self.spaceKeyEventText = self.genLabelText(
-            "[SPACE]: Toggle entire Solar System [RUNNING]", 1)
-        self.skeyEventText = self.genLabelText("Sun [RUNNING]", 2)
-        self.ykeyEventText = self.genLabelText("Mercury [RUNNING]", 3)
-        self.vkeyEventText = self.genLabelText("Venus [RUNNING]", 4)
-        self.ekeyEventText = self.genLabelText("[E]: Toggle Earth [RUNNING]", 5)
-        self.mkeyEventText = self.genLabelText("Mars [RUNNING]", 6)
-        self.speedUpText = self.genLabelText("[J] SPEED UP!", 7)
-        self.slowDownText = self.genLabelText("[K] slow down...", 8)
+            "[SPACE]: Toggle entire Solar System", 2)
+        #self.skeyEventText = self.genLabelText("Sun [RUNNING]", 3)
+        #self.ykeyEventText = self.genLabelText("Mercury [RUNNING]", 4)
+        #self.vkeyEventText = self.genLabelText("Venus [RUNNING]", 5)
+        #self.ekeyEventText = self.genLabelText("[E]: Toggle Earth [RUNNING]", 6)
+        #self.mkeyEventText = self.genLabelText("Mars [RUNNING]", 7)
+        self.speedUpText = self.genLabelText("[J] SPEED UP!", 3)
+        self.slowDownText = self.genLabelText("[K] slow down...", 4)
+
+        self.instruction = True
+
+    def hideLayoutAction(self):
+        self.instructionText = self.genLabelText("", 1)
+        self.spaceKeyEventText = self.genLabelText(
+            "", 2)
+        #self.skeyEventText = self.genLabelText("Sun [RUNNING]", 3)
+        #self.ykeyEventText = self.genLabelText("Mercury [RUNNING]", 4)
+        #self.vkeyEventText = self.genLabelText("Venus [RUNNING]", 5)
+        #self.ekeyEventText = self.genLabelText("[E]: Toggle Earth [RUNNING]", 6)
+        #self.mkeyEventText = self.genLabelText("Mars [RUNNING]", 7)
+        self.speedUpText = ""
+        self.slowDownText = ""
+
+        self.instructionText = self.genLabelText("[I]: Show Instruction", 1)
+        self.instruction = False
 
     def activateAction(self):
         self.accept("escape", sys.exit)
@@ -54,6 +74,13 @@ class ActionHandler(DirectObject):
         self.accept("space", self.handleAll)
         self.accept("j", self.speedUp)
         self.accept("k", self.slowDown)
+        self.accept("i", self.toggleInstructions)
+
+    def toggleInstructions(self):
+        if self.instruction == True:
+            self.hideLayoutAction()
+        else:
+            self.displayLayout()
 
     def speedUp(self):
         print ("SpeedUP")
@@ -74,10 +101,6 @@ class ActionHandler(DirectObject):
         # planets and sun, otherwise resume it
         if self.simRunning:
             print("Pausing Simulation")
-            # changing the text to reflect the change from "RUNNING" to
-            # "PAUSED"
-            self.spaceKeyEventText.setText(
-                "SPACE: Toggle entire Solar System [PAUSED]")
             # For each planet, check if it is moving and if so, pause it
             # Sun
             if self.cbAttDic["sunDay"].isPlaying():
@@ -103,8 +126,6 @@ class ActionHandler(DirectObject):
         else:
             #"The simulation is paused, so resume it
             print("Resuming Simulation")
-            self.spaceKeyEventText.setText(
-                "SPACE: Toggle entire Solar System [RUNNING]")
             # the not operator does the reverse of the previous code
             if not self.cbAttDic["sunDay"].isPlaying():
                 self.togglePlanet("Sun", self.cbAttDic["sunDay"], None,
@@ -128,19 +149,19 @@ class ActionHandler(DirectObject):
     # end handleMouseClick
 
     def togglePlanet(self, planet, day, orbit=None, text=None):
-        if day.isPlaying():
-            print("Pausing " + planet)
-            state = " [PAUSED]"
-        else:
-            print("Resuming " + planet)
-            state = " [RUNNING]"
+        #if day.isPlaying():
+        #    print("Pausing " + planet)
+        #    state = " [PAUSED]"
+        #else:
+        #    print("Resuming " + planet)
+        #    state = " [RUNNING]"
 
         # Update the onscreen text if it is given as an argument
-        if text:
-            old = text.getText()
+        #if text:
+        #    old = text.getText()
             # strip out the last segment of text after the last white space
             # and append the string stored in 'state'
-            text.setText(old[0:old.rfind(' ')] + state)
+        #    text.setText(old[0:old.rfind(' ')] + state)
 
         # toggle the day interval
         self.toggleInterval(day)
