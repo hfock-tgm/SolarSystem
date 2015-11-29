@@ -23,7 +23,7 @@ class Main(DirectObject):
     cb.loadAllCelestialBodys()
     cb.rotateAllCelestialBodys()
 
-    action = ActionHandler.ActionHandler(base, cb.cbAtt, cb.cbAttDic)
+    action = ActionHandler.ActionHandler(base, cb.cbAtt, cb.cbAttDic, cb.cbAttTex)
     action.initAll()
 
 

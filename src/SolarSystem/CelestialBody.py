@@ -7,6 +7,7 @@ class CelestialBody(object):
 
         self.cbAtt = []
         self.cbAttDic = {}
+        self.cbAttTex = {}
 
     def loadAllCelestialBodys(self):
         self.loadSun()
@@ -39,6 +40,9 @@ class CelestialBody(object):
         self.sun.setTexture(self.sun_tex, 1)
         # Hier wird die Groesse des Himmelskoerper gesetzt
         self.sun.setScale(2 * self.sizescale)
+
+        self.cbAttTex["sunTex"] = self.sun_tex
+        self.cbAttTex["sun"] = self.sun
     # end loadSun
 
     def rotateSun(self):
@@ -61,6 +65,9 @@ class CelestialBody(object):
         self.earth.reparentTo(self.orbit_root_earth)
         self.earth.setScale(self.sizescale)
         self.earth.setPos(self.orbitscale, 0, 0)
+
+        self.cbAttTex["earthTex"] = self.earth_tex
+        self.cbAttTex["earth"] = self.earth
     # end loadEarth
 
     def rotateEarth(self):
@@ -98,6 +105,9 @@ class CelestialBody(object):
         self.moon.setScale(0.1 * self.sizescale)
         self.moon.setPos(0.1 * self.orbitscale, 0, 0)
 
+        self.cbAttTex["moonTex"] = self.moon_tex
+        self.cbAttTex["moon"] = self.moon
+
     def rotateMoon(self):
         # moon
         self.orbit_period_moon = self.orbit_root_moon.hprInterval(
@@ -125,6 +135,9 @@ class CelestialBody(object):
         self.mars.setPos(1.52 * self.orbitscale, 0, 0)
         self.mars.setScale(0.515 * self.sizescale)
 
+        self.cbAttTex["marsTex"] = self.mars_tex
+        self.cbAttTex["mars"] = self.mars
+
     def rotateMars(self):
         self.orbit_period_mars = self.orbit_root_mars.hprInterval(
             (1.881 * self.yearscale), (360, 0, 0))
@@ -149,6 +162,9 @@ class CelestialBody(object):
         self.mercury.reparentTo(self.orbit_root_mercury)
         self.mercury.setPos(0.38 * self.orbitscale, 0, 0)
         self.mercury.setScale(0.385 * self.sizescale)
+
+        self.cbAttTex["mercuryTex"] = self.mercury_tex
+        self.cbAttTex["mercury"] = self.mercury
 
     def rotateMercury(self):
         self.orbit_period_mercury = self.orbit_root_mercury.hprInterval(
@@ -176,6 +192,9 @@ class CelestialBody(object):
         self.venus.setPos(0.72 * self.orbitscale, 0, 0)
         self.venus.setScale(0.923 * self.sizescale)
 
+        self.cbAttTex["venusTex"] = self.venus_tex
+        self.cbAttTex["venus"] = self.venus
+
     def rotateVenus(self):
         self.orbit_period_venus = self.orbit_root_venus.hprInterval(
             (0.615 * self.yearscale), (360, 0, 0))
@@ -201,6 +220,9 @@ class CelestialBody(object):
         self.jupiter.reparentTo(self.orbit_root_jupiter)
         self.jupiter.setPos(2 * self.orbitscale, 0, 0)
         self.jupiter.setScale(0.923 * self.sizescale)
+
+        self.cbAttTex["jupiterTex"] = self.jupiter_tex
+        self.cbAttTex["jupiter"] = self.jupiter
 
     def rotateJupiter(self):
         self.orbit_period_jupiter = self.orbit_root_jupiter.hprInterval(
