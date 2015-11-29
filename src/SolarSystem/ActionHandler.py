@@ -129,6 +129,10 @@ class ActionHandler(DirectObject):
             if self.cbAttDic["marsDay"].isPlaying():
                 self.togglePlanet("Mars", self.cbAttDic["marsDay"],
                                   self.cbAttDic["marsOrbit"], self.mkeyEventText)
+            # jupiter
+            if self.cbAttDic["jupiterDay"].isPlaying():
+                self.togglePlanet("jupiter", self.cbAttDic["jupiterDay"],
+                                  self.cbAttDic["jupiterOrbit"], self.mkeyEventText)
         else:
             #"The simulation is paused, so resume it
             print("Resuming Simulation")
@@ -150,6 +154,9 @@ class ActionHandler(DirectObject):
             if not self.cbAttDic["marsDay"].isPlaying():
                 self.togglePlanet("Mars", self.cbAttDic["marsDay"],
                                   self.cbAttDic["marsOrbit"], self.mkeyEventText)
+            if not self.cbAttDic["jupiterDay"].isPlaying():
+                self.togglePlanet("jupiter", self.cbAttDic["jupiterDay"],
+                                  self.cbAttDic["jupiterOrbit"], self.mkeyEventText)
         # toggle self.simRunning
         self.simRunning = not self.simRunning
     # end handleMouseClick
