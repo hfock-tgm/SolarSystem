@@ -79,7 +79,6 @@ class ActionHandler(DirectObject):
         self.accept("space", self.handleAll)
         self.accept("j", self.speedUp)
         self.accept("k", self.slowDown)
-        #self.accept("i", self.toggleInstructions)
         self.accept("t", self.toggleTex)
 
     def toggleInstructions(self):
