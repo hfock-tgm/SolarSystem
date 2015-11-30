@@ -28,8 +28,14 @@ class ActionHandler(DirectObject):
         self.slowDownText = 0
 
         self.simRunning = True
-        self.instruction = 0
+        self.instruction = True
         self.origTex = True
+
+        self.instructionText = 0
+        self.spaceKeyEventText = 0
+        self.speedUpText = 0
+        self.slowDownText = 0
+        self.toggleTextureText = 0
 
     def initAll(self):
         self.displayLayout()
@@ -43,35 +49,23 @@ class ActionHandler(DirectObject):
             style=1, fg=(1, 1, 1, 1), pos=(-0.1, 0.1), scale=.07)
 
     def displayLayoutAction(self):
-        self.instructionText = self.genLabelText("[T]: Toggle Texture", 1)
-        self.spaceKeyEventText = self.genLabelText(
-            "[SPACE]: Toggle entire Solar System", 2)
-        #self.skeyEventText = self.genLabelText("Sun [RUNNING]", 3)
-        #self.ykeyEventText = self.genLabelText("Mercury [RUNNING]", 4)
-        #self.vkeyEventText = self.genLabelText("Venus [RUNNING]", 5)
-        #self.ekeyEventText = self.genLabelText("[E]: Toggle Earth [RUNNING]", 6)
-        #self.mkeyEventText = self.genLabelText("Mars [RUNNING]", 7)
-        self.speedUpText = self.genLabelText("[J] SPEED UP!", 3)
-        self.slowDownText = self.genLabelText("[K] slow down...", 4)
+        self.instructionText = self.genLabelText("[I]: Hide Instructions", 1)
+        self.spaceKeyEventText = self.genLabelText("[SPACE]: Toggle entire Solar System", 2)
+        self.speedUpText = self.genLabelText("[J]: SPEED UP!", 3)
+        self.slowDownText = self.genLabelText("[K]: slow down...", 4)
+        self.toggleTextureText = self.genLabelText("[T]: Toggle Texture", 5)
 
-        self.instruction = True
 
-    '''
     def hideLayoutAction(self):
-        self.instructionText = self.genLabelText("", 1)
-        self.spaceKeyEventText = self.genLabelText(
-            "", 2)
-        #self.skeyEventText = self.genLabelText("Sun [RUNNING]", 3)
-        #self.ykeyEventText = self.genLabelText("Mercury [RUNNING]", 4)
-        #self.vkeyEventText = self.genLabelText("Venus [RUNNING]", 5)
-        #self.ekeyEventText = self.genLabelText("[E]: Toggle Earth [RUNNING]", 6)
-        #self.mkeyEventText = self.genLabelText("Mars [RUNNING]", 7)
-        self.speedUpText = ""
-        self.slowDownText = ""
+        self.instructionText.hide()
+        self.spaceKeyEventText.hide()
+        self.speedUpText.hide()
+        self.slowDownText.hide()
+        self.toggleTextureText.hide()
 
-        self.instructionText = self.genLabelText("[I]: Show Instruction", 1)
-        self.instruction = False
-    '''
+        self.instructionText = self.genLabelText("[I]: Show Instructions", 1)
+
+
 
     def activateAction(self):
         self.accept("escape", sys.exit)
@@ -80,12 +74,17 @@ class ActionHandler(DirectObject):
         self.accept("j", self.speedUp)
         self.accept("k", self.slowDown)
         self.accept("t", self.toggleTex)
+        self.accept("i", self.toggleInstructions)
 
     def toggleInstructions(self):
         if self.instruction == True:
+            print("True")
             self.hideLayoutAction()
-        else:
+            self.instruction = False
+        elif self.instruction == False:
+            print("False")
             self.displayLayout()
+            self.instruction = True
 
     def speedUp(self):
         print ("SpeedUP")
