@@ -57,6 +57,7 @@ class ActionHandler(DirectObject):
         self.slowDownText = self.genLabelText("[-]: slow down...", 4)
         self.toggleTextureText = self.genLabelText("[T]: Toggle Texture", 5)
         self.resetSolarSystemText = self.genLabelText("[R]: Reset Solar System", 6)
+        self.easterEggText = self.genLabelText("[X, Y, C, B]: Something Special", 7)
 
 
     def showLayoutAction(self):
@@ -66,6 +67,7 @@ class ActionHandler(DirectObject):
         self.slowDownText.setText("[-]: slow down...")
         self.toggleTextureText.setText("[T]: Toggle Texture")
         self.resetSolarSystemText.setText("[R]: Reset Solar System")
+        self.easterEggText.setText("[X, Y, C, B, V]: Something Special")
 
     def hideLayoutAction(self):
         self.instructionText.setText("")
@@ -74,6 +76,7 @@ class ActionHandler(DirectObject):
         self.slowDownText.setText("")
         self.toggleTextureText.setText("")
         self.resetSolarSystemText.setText("")
+        self.easterEggText.setText("")
 
         self.instructionText = self.genLabelText("[I]: Show Instructions", 1)
 
@@ -93,6 +96,7 @@ class ActionHandler(DirectObject):
         self.accept("x", self.teamTex)
         self.accept("y", self.marmTex)
         self.accept("c", self.brezinaTex)
+        self.accept("v", self.testbildTex)
 
     def unlimit(self):
         #earth
@@ -296,6 +300,15 @@ class ActionHandler(DirectObject):
         if (self.origTex == True):
             self.origTex = False
             self.loadTex("weiss")
+
+        else:
+            self.origTex = True
+            self.resumeToNormalTex()
+
+    def testbildTex(self):
+        if (self.origTex == True):
+            self.origTex = False
+            self.loadTex("testbild")
 
         else:
             self.origTex = True
