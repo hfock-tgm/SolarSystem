@@ -37,6 +37,7 @@ class ActionHandler(DirectObject):
         self.speedUpText = 0
         self.slowDownText = 0
         self.toggleTextureText = 0
+        self.resetSolarSystemText = 0
 
     def initAll(self):
         self.displayLayout()
@@ -52,9 +53,10 @@ class ActionHandler(DirectObject):
     def displayLayoutAction(self):
         self.instructionText = self.genLabelText("[I]: Hide Instructions", 1)
         self.spaceKeyEventText = self.genLabelText("[SPACE]: Toggle entire Solar System", 2)
-        self.speedUpText = self.genLabelText("[J]: SPEED UP!", 3)
-        self.slowDownText = self.genLabelText("[K]: slow down...", 4)
+        self.speedUpText = self.genLabelText("[+]: SPEED UP!", 3)
+        self.slowDownText = self.genLabelText("[-]: slow down...", 4)
         self.toggleTextureText = self.genLabelText("[T]: Toggle Texture", 5)
+        self.resetSolarSystemText = self.genLabelText("[R]: Reset Solar System", 6)
 
 
     def hideLayoutAction(self):
@@ -63,6 +65,7 @@ class ActionHandler(DirectObject):
         self.speedUpText.hide()
         self.slowDownText.hide()
         self.toggleTextureText.hide()
+        self.resetSolarSystemText.hide()
 
         self.instructionText = self.genLabelText("[I]: Show Instructions", 1)
 
@@ -72,10 +75,11 @@ class ActionHandler(DirectObject):
         self.accept("escape", sys.exit)
         self.accept("e", self.handleEarth)
         self.accept("space", self.handleAll)
-        self.accept("j", self.speedUp)
-        self.accept("k", self.slowDown)
+        self.accept("+", self.speedUp)
+        self.accept("-", self.slowDown)
         self.accept("t", self.toggleTex)
         self.accept("i", self.toggleInstructions)
+        self.accept("r", self.resetSolarSystem)
 
     def toggleInstructions(self):
         if self.instruction == True:
@@ -89,52 +93,101 @@ class ActionHandler(DirectObject):
 
     def speedUp(self):
         print ("SpeedUP")
+        if (self.cbAttDic["sunDay"].getPlayRate() == -1):
+            #sun
+            self.cbAttDic["sunDay"].setPlayRate(1)
+            #earth
+            self.cbAttDic["earthOrbit"].setPlayRate(1)
+            self.cbAttDic["earthDay"].setPlayRate(1)
+            #moon
+            self.cbAttDic["moonOrbit"].setPlayRate(1)
+            self.cbAttDic["moonDay"].setPlayRate(1)
+            #mars
+            self.cbAttDic["marsOrbit"].setPlayRate(1)
+            self.cbAttDic["marsDay"].setPlayRate(1)
+            #mercury
+            self.cbAttDic["mercuryOrbit"].setPlayRate(1)
+            self.cbAttDic["mercuryDay"].setPlayRate(1)
+            #jupiter
+            self.cbAttDic["jupiterOrbit"].setPlayRate(1)
+            self.cbAttDic["jupiterDay"].setPlayRate(1)
+            #venus
+            self.cbAttDic["venusOrbit"].setPlayRate(1)
+            self.cbAttDic["venusDay"].setPlayRate(1)
+        else:
+            #sun
+            self.cbAttDic["sunDay"].setPlayRate(self.cbAttDic["sunDay"].getPlayRate()+1)
+            #earth
+            self.cbAttDic["earthOrbit"].setPlayRate(self.cbAttDic["earthOrbit"].getPlayRate()+1)
+            self.cbAttDic["earthDay"].setPlayRate(self.cbAttDic["earthDay"].getPlayRate()+1)
+            #moon
+            self.cbAttDic["moonOrbit"].setPlayRate(self.cbAttDic["moonOrbit"].getPlayRate()+1)
+            self.cbAttDic["moonDay"].setPlayRate(self.cbAttDic["moonDay"].getPlayRate()+1)
+            #mars
+            self.cbAttDic["marsOrbit"].setPlayRate(self.cbAttDic["marsOrbit"].getPlayRate()+1)
+            self.cbAttDic["marsDay"].setPlayRate(self.cbAttDic["marsDay"].getPlayRate()+1)
+            #mercury
+            self.cbAttDic["mercuryOrbit"].setPlayRate(self.cbAttDic["mercuryOrbit"].getPlayRate()+1)
+            self.cbAttDic["mercuryDay"].setPlayRate(self.cbAttDic["mercuryDay"].getPlayRate()+1)
+            #jupiter
+            self.cbAttDic["jupiterOrbit"].setPlayRate(self.cbAttDic["jupiterOrbit"].getPlayRate()+1)
+            self.cbAttDic["jupiterDay"].setPlayRate(self.cbAttDic["jupiterDay"].getPlayRate()+1)
+            #venus
+            self.cbAttDic["venusOrbit"].setPlayRate(self.cbAttDic["venusOrbit"].getPlayRate()+1)
+            self.cbAttDic["venusDay"].setPlayRate(self.cbAttDic["venusDay"].getPlayRate()+1)
+
+
+
+
         print (self.cbAttDic["sunDay"].getPlayRate())
-        #sun
-        self.cbAttDic["sunDay"].setPlayRate(self.cbAttDic["sunDay"].getPlayRate()+1)
-        #earth
-        self.cbAttDic["earthOrbit"].setPlayRate(self.cbAttDic["earthOrbit"].getPlayRate()+1)
-        self.cbAttDic["earthDay"].setPlayRate(self.cbAttDic["earthDay"].getPlayRate()+1)
-        #moon
-        self.cbAttDic["moonOrbit"].setPlayRate(self.cbAttDic["moonOrbit"].getPlayRate()+1)
-        self.cbAttDic["moonDay"].setPlayRate(self.cbAttDic["moonDay"].getPlayRate()+1)
-        #mars
-        self.cbAttDic["marsOrbit"].setPlayRate(self.cbAttDic["marsOrbit"].getPlayRate()+1)
-        self.cbAttDic["marsDay"].setPlayRate(self.cbAttDic["marsDay"].getPlayRate()+1)
-        #mercury
-        self.cbAttDic["mercuryOrbit"].setPlayRate(self.cbAttDic["mercuryOrbit"].getPlayRate()+1)
-        self.cbAttDic["mercuryDay"].setPlayRate(self.cbAttDic["mercuryDay"].getPlayRate()+1)
-        #jupiter
-        self.cbAttDic["jupiterOrbit"].setPlayRate(self.cbAttDic["jupiterOrbit"].getPlayRate()+1)
-        self.cbAttDic["jupiterDay"].setPlayRate(self.cbAttDic["jupiterDay"].getPlayRate()+1)
-        #venus
-        self.cbAttDic["venusOrbit"].setPlayRate(self.cbAttDic["venusOrbit"].getPlayRate()+1)
-        self.cbAttDic["venusDay"].setPlayRate(self.cbAttDic["venusDay"].getPlayRate()+1)
 
 
     def slowDown(self):
         print ("SlowDown")
+        if (self.cbAttDic["sunDay"].getPlayRate() == 1):
+            #sun
+            self.cbAttDic["sunDay"].setPlayRate(-1)
+            #earth
+            self.cbAttDic["earthOrbit"].setPlayRate(-1)
+            self.cbAttDic["earthDay"].setPlayRate(-1)
+            #moon
+            self.cbAttDic["moonOrbit"].setPlayRate(-1)
+            self.cbAttDic["moonDay"].setPlayRate(-1)
+            #mars
+            self.cbAttDic["marsOrbit"].setPlayRate(-1)
+            self.cbAttDic["marsDay"].setPlayRate(-1)
+            #mercury
+            self.cbAttDic["mercuryOrbit"].setPlayRate(-1)
+            self.cbAttDic["mercuryDay"].setPlayRate(-1)
+            #jupiter
+            self.cbAttDic["jupiterOrbit"].setPlayRate(-1)
+            self.cbAttDic["jupiterDay"].setPlayRate(-1)
+            #venus
+            self.cbAttDic["venusOrbit"].setPlayRate(-1)
+            self.cbAttDic["venusDay"].setPlayRate(-1)
+        else:
+            #sun
+            self.cbAttDic["sunDay"].setPlayRate(self.cbAttDic["sunDay"].getPlayRate()-1)
+            #earth
+            self.cbAttDic["earthOrbit"].setPlayRate(self.cbAttDic["earthOrbit"].getPlayRate()-1)
+            self.cbAttDic["earthDay"].setPlayRate(self.cbAttDic["earthDay"].getPlayRate()-1)
+            #moon
+            self.cbAttDic["moonOrbit"].setPlayRate(self.cbAttDic["moonOrbit"].getPlayRate()-1)
+            self.cbAttDic["moonDay"].setPlayRate(self.cbAttDic["moonDay"].getPlayRate()-1)
+            #mars
+            self.cbAttDic["marsOrbit"].setPlayRate(self.cbAttDic["marsOrbit"].getPlayRate()-1)
+            self.cbAttDic["marsDay"].setPlayRate(self.cbAttDic["marsDay"].getPlayRate()-1)
+            #mercury
+            self.cbAttDic["mercuryOrbit"].setPlayRate(self.cbAttDic["mercuryOrbit"].getPlayRate()-1)
+            self.cbAttDic["mercuryDay"].setPlayRate(self.cbAttDic["mercuryDay"].getPlayRate()-1)
+            #jupiter
+            self.cbAttDic["jupiterOrbit"].setPlayRate(self.cbAttDic["jupiterOrbit"].getPlayRate()-1)
+            self.cbAttDic["jupiterDay"].setPlayRate(self.cbAttDic["jupiterDay"].getPlayRate()-1)
+            #venus
+            self.cbAttDic["venusOrbit"].setPlayRate(self.cbAttDic["venusOrbit"].getPlayRate()-1)
+            self.cbAttDic["venusDay"].setPlayRate(self.cbAttDic["venusDay"].getPlayRate()-1)
+
         print (self.cbAttDic["sunDay"].getPlayRate())
-        #sun
-        self.cbAttDic["sunDay"].setPlayRate(self.cbAttDic["sunDay"].getPlayRate()-1)
-        #earth
-        self.cbAttDic["earthOrbit"].setPlayRate(self.cbAttDic["earthOrbit"].getPlayRate()-1)
-        self.cbAttDic["earthDay"].setPlayRate(self.cbAttDic["earthDay"].getPlayRate()-1)
-        #moon
-        self.cbAttDic["moonOrbit"].setPlayRate(self.cbAttDic["moonOrbit"].getPlayRate()-1)
-        self.cbAttDic["moonDay"].setPlayRate(self.cbAttDic["moonDay"].getPlayRate()-1)
-        #mars
-        self.cbAttDic["marsOrbit"].setPlayRate(self.cbAttDic["marsOrbit"].getPlayRate()-1)
-        self.cbAttDic["marsDay"].setPlayRate(self.cbAttDic["marsDay"].getPlayRate()-1)
-        #mercury
-        self.cbAttDic["mercuryOrbit"].setPlayRate(self.cbAttDic["mercuryOrbit"].getPlayRate()-1)
-        self.cbAttDic["mercuryDay"].setPlayRate(self.cbAttDic["mercuryDay"].getPlayRate()-1)
-        #jupiter
-        self.cbAttDic["jupiterOrbit"].setPlayRate(self.cbAttDic["jupiterOrbit"].getPlayRate()-1)
-        self.cbAttDic["jupiterDay"].setPlayRate(self.cbAttDic["jupiterDay"].getPlayRate()-1)
-        #venus
-        self.cbAttDic["venusOrbit"].setPlayRate(self.cbAttDic["venusOrbit"].getPlayRate()-1)
-        self.cbAttDic["venusDay"].setPlayRate(self.cbAttDic["venusDay"].getPlayRate()-1)
 
     def handleEarth(self):
         self.togglePlanet("Earth", self.cbAttDic["earthDay"],
@@ -280,4 +333,26 @@ class ActionHandler(DirectObject):
            # toggle venus
             self.cbAttTex["venusTex"] = loader.loadTexture("../../models/venus_1k_tex.jpg")
             self.cbAttTex["venus"].setTexture(self.cbAttTex["venusTex"], 1)
+
+    def resetSolarSystem(self):
+        #sun
+        self.cbAttDic["sunDay"].setPlayRate(0)
+        #earth
+        self.cbAttDic["earthOrbit"].setPlayRate(0)
+        self.cbAttDic["earthDay"].setPlayRate(0)
+        #moon
+        self.cbAttDic["moonOrbit"].setPlayRate(0)
+        self.cbAttDic["moonDay"].setPlayRate(0)
+        #mars
+        self.cbAttDic["marsOrbit"].setPlayRate(0)
+        self.cbAttDic["marsDay"].setPlayRate(0)
+        #mercury
+        self.cbAttDic["mercuryOrbit"].setPlayRate(0)
+        self.cbAttDic["mercuryDay"].setPlayRate(0)
+        #jupiter
+        self.cbAttDic["jupiterOrbit"].setPlayRate(0)
+        self.cbAttDic["jupiterDay"].setPlayRate(0)
+        #venus
+        self.cbAttDic["venusOrbit"].setPlayRate(0)
+        self.cbAttDic["venusDay"].setPlayRate(0)
 

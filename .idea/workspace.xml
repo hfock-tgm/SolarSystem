@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80a9d9f1-d409-49fe-aee4-9813e8f8cc21" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/sparkle.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/fireish.ptf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SolarSystem/SpecialClass.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Fock_Polydor_SolarSystem.docx" afterPath="$PROJECT_DIR$/docs/Fock_Polydor_SolarSystem.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SolarSystem/CelestialBody.py" afterPath="$PROJECT_DIR$/src/SolarSystem/CelestialBody.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SolarSystem/Main.py" afterPath="$PROJECT_DIR$/src/SolarSystem/Main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SolarSystem/ActionHandler.py" afterPath="$PROJECT_DIR$/src/SolarSystem/ActionHandler.py" />
     </list>
     <ignored path="SolarSystem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +27,7 @@
     <SUITE FILE_PATH="coverage/SolarSystem$HelloWorld.coverage" NAME="HelloWorld Coverage Results" MODIFIED="1447315076270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/SolarSystem$main.coverage" NAME="main Coverage Results" MODIFIED="1447763517587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/SolarSystem$Test__2_.coverage" NAME="Test (2) Coverage Results" MODIFIED="1447768108559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Test" />
-    <SUITE FILE_PATH="coverage/SolarSystem$Main.coverage" NAME="Main Coverage Results" MODIFIED="1448964468757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/SolarSystem" />
+    <SUITE FILE_PATH="coverage/SolarSystem$Main.coverage" NAME="Main Coverage Results" MODIFIED="1448971055569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/SolarSystem" />
     <SUITE FILE_PATH="coverage/SolarSystem$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1447322856442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pywavefront" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -46,8 +42,8 @@
       <file leaf-file-name="ActionHandler.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SolarSystem/ActionHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0131578">
-              <caret line="56" column="76" selection-start-line="56" selection-start-column="76" selection-end-line="56" selection-end-column="76" />
+            <state vertical-scroll-proportion="0.24887893">
+              <caret line="183" column="98" selection-start-line="183" selection-start-column="98" selection-end-line="183" selection-end-column="98" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -58,7 +54,7 @@
       <file leaf-file-name="SpecialClass.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SolarSystem/SpecialClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6111111">
+            <state vertical-scroll-proportion="0.0">
               <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
               <folding />
             </state>
@@ -88,7 +84,7 @@
       <file leaf-file-name="fireish.ptf" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/fireish.ptf">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2777778">
+            <state vertical-scroll-proportion="0.0">
               <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
               <folding />
             </state>
@@ -131,7 +127,7 @@
         <entry file="file://$PROJECT_DIR$/src/SolarSystem/CelestialBody.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+              <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -179,11 +175,11 @@
         <option value="$PROJECT_DIR$/src/SolarSystem/Planets/Earth.py" />
         <option value="$PROJECT_DIR$/src/SolarSystem/CameraHandler.py" />
         <option value="$PROJECT_DIR$/src/SolarSystem/Universe.py" />
-        <option value="$PROJECT_DIR$/src/SolarSystem/ActionHandler.py" />
         <option value="$PROJECT_DIR$/src/SolarSystem/CelestialBody.py" />
         <option value="$PROJECT_DIR$/src/SolarSystem/Main.py" />
         <option value="$PROJECT_DIR$/src/SolarSystem/SpecialClass.py" />
         <option value="$PROJECT_DIR$/models/fireish.ptf" />
+        <option value="$PROJECT_DIR$/src/SolarSystem/ActionHandler.py" />
       </list>
     </option>
   </component>
@@ -193,10 +189,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="952" />
+    <option name="width" value="976" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -242,6 +237,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -322,7 +318,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -687,7 +682,13 @@
       <option name="project" value="LOCAL" />
       <updated>1448961587929</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implemented SpecialClass&#10;added a glowing effect to the sun">
+      <created>1448964537416</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1448964537416</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -699,16 +700,16 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="952" y="0" width="976" height="1038" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2515625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50417536" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46557376" sideWeight="0.50208336" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46557376" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47071823" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -741,7 +742,8 @@
     <MESSAGE value="texture of the celestial bodys are now toggleable between white and original texture" />
     <MESSAGE value="jupiter is now able to stop rotating" />
     <MESSAGE value="slowDown and speedUp Methodes were implemented in ActionHandler" />
-    <option name="LAST_COMMIT_MESSAGE" value="slowDown and speedUp Methodes were implemented in ActionHandler" />
+    <MESSAGE value="implemented SpecialClass&#10;added a glowing effect to the sun" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented SpecialClass&#10;added a glowing effect to the sun" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1071,7 +1073,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1079,22 +1080,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SolarSystem/CameraHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SolarSystem/CelestialBody.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1132,7 +1117,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SolarSystem/SpecialClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6111111">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
           <folding />
         </state>
@@ -1140,16 +1125,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/fireish.ptf">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2777778">
+        <state vertical-scroll-proportion="0.0">
           <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SolarSystem/CameraHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SolarSystem/CelestialBody.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SolarSystem/ActionHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0131578">
-          <caret line="56" column="76" selection-start-line="56" selection-start-column="76" selection-end-line="56" selection-end-column="76" />
+        <state vertical-scroll-proportion="0.24887893">
+          <caret line="183" column="98" selection-start-line="183" selection-start-column="98" selection-end-line="183" selection-end-column="98" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
