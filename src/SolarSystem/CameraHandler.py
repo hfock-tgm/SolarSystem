@@ -6,8 +6,4 @@ class CameraHandler(object):
         self.base = base
         camera.setPos(0, 0, 45)
         camera.setHpr(0, -90, 0)
-
-
-
-    def initStartPos(self):
-        pass
+        self.base.trackball.node().setPos(0, 60, 0)
