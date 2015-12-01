@@ -306,49 +306,24 @@ class ActionHandler(DirectObject):
             self.resumeToNormalTex()
 
     def testbildTex(self):
-        if (self.origTex == True):
             self.origTex = False
             self.loadTex("testbild")
 
-        else:
-            self.origTex = True
-            self.resumeToNormalTex()
-
     def borkoTex(self):
-        if (self.origTex == True):
             self.origTex = False
             self.loadTex("borko")
 
-        else:
-            self.origTex = True
-            self.resumeToNormalTex()
-
     def brezinaTex(self):
-        if (self.origTex == True):
             self.origTex = False
             self.loadTex("brezina")
 
-        else:
-            self.origTex = True
-            self.resumeToNormalTex()
-
     def teamTex(self):
-        if (self.origTex == True):
             self.origTex = False
             self.loadTex("team")
 
-        else:
-            self.origTex = True
-            self.resumeToNormalTex()
-
     def marmTex(self):
-        if (self.origTex == True):
             self.origTex = False
             self.loadTex("marm")
-
-        else:
-            self.origTex = True
-            self.resumeToNormalTex()
 
     def loadTex(self, str):
         # toggle sun
