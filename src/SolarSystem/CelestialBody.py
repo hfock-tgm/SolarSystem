@@ -86,8 +86,6 @@ class CelestialBody(object):
         self.cbAttDic["earthDay"] = self.day_period_earth
         self.cbAttDic["earthOrbit"] = self.orbit_period_earth
 
-
-
     def loadMoon(self):
         # Hier wird der Mond an die Erde gehaengt
         self.orbit_root_moon = (
@@ -232,6 +230,7 @@ class CelestialBody(object):
 
         self.orbit_period_jupiter.loop()
         self.day_period_jupiter.loop()
+
 
         self.cbAtt.append(self.orbit_period_jupiter)
         self.cbAtt.append(self.day_period_jupiter)

@@ -19,11 +19,6 @@ class ActionHandler(DirectObject):
 
         self.instructionText = 0
         self.spaceKeyEventText = 0
-        self.skeyEventText = 0
-        self.ykeyEventText = 0
-        self.vkeyEventText = 0
-        self.ekeyEventText = 0
-        self.mkeyEventText = 0
         self.speedUpText = 0
         self.slowDownText = 0
 
@@ -33,6 +28,12 @@ class ActionHandler(DirectObject):
 
         self.instructionText = 0
         self.spaceKeyEventText = 0
+        self.skeyEventText = 0
+        self.ykeyEventText = 0
+        self.vkeyEventText = 0
+        self.ekeyEventText = 0
+        self.mkeyEventText = 0
+        self.jkeyEventText = 0
         self.speedUpText = 0
         self.slowDownText = 0
         self.toggleTextureText = 0
@@ -88,9 +89,52 @@ class ActionHandler(DirectObject):
 
     def speedUp(self):
         print ("SpeedUP")
+        print (self.cbAttDic["sunDay"].getPlayRate())
+        #sun
+        self.cbAttDic["sunDay"].setPlayRate(self.cbAttDic["sunDay"].getPlayRate()+1)
+        #earth
+        self.cbAttDic["earthOrbit"].setPlayRate(self.cbAttDic["earthOrbit"].getPlayRate()+1)
+        self.cbAttDic["earthDay"].setPlayRate(self.cbAttDic["earthDay"].getPlayRate()+1)
+        #moon
+        self.cbAttDic["moonOrbit"].setPlayRate(self.cbAttDic["moonOrbit"].getPlayRate()+1)
+        self.cbAttDic["moonDay"].setPlayRate(self.cbAttDic["moonDay"].getPlayRate()+1)
+        #mars
+        self.cbAttDic["marsOrbit"].setPlayRate(self.cbAttDic["marsOrbit"].getPlayRate()+1)
+        self.cbAttDic["marsDay"].setPlayRate(self.cbAttDic["marsDay"].getPlayRate()+1)
+        #mercury
+        self.cbAttDic["mercuryOrbit"].setPlayRate(self.cbAttDic["mercuryOrbit"].getPlayRate()+1)
+        self.cbAttDic["mercuryDay"].setPlayRate(self.cbAttDic["mercuryDay"].getPlayRate()+1)
+        #jupiter
+        self.cbAttDic["jupiterOrbit"].setPlayRate(self.cbAttDic["jupiterOrbit"].getPlayRate()+1)
+        self.cbAttDic["jupiterDay"].setPlayRate(self.cbAttDic["jupiterDay"].getPlayRate()+1)
+        #venus
+        self.cbAttDic["venusOrbit"].setPlayRate(self.cbAttDic["venusOrbit"].getPlayRate()+1)
+        self.cbAttDic["venusDay"].setPlayRate(self.cbAttDic["venusDay"].getPlayRate()+1)
+
 
     def slowDown(self):
         print ("SlowDown")
+        print (self.cbAttDic["sunDay"].getPlayRate())
+        #sun
+        self.cbAttDic["sunDay"].setPlayRate(self.cbAttDic["sunDay"].getPlayRate()-1)
+        #earth
+        self.cbAttDic["earthOrbit"].setPlayRate(self.cbAttDic["earthOrbit"].getPlayRate()-1)
+        self.cbAttDic["earthDay"].setPlayRate(self.cbAttDic["earthDay"].getPlayRate()-1)
+        #moon
+        self.cbAttDic["moonOrbit"].setPlayRate(self.cbAttDic["moonOrbit"].getPlayRate()-1)
+        self.cbAttDic["moonDay"].setPlayRate(self.cbAttDic["moonDay"].getPlayRate()-1)
+        #mars
+        self.cbAttDic["marsOrbit"].setPlayRate(self.cbAttDic["marsOrbit"].getPlayRate()-1)
+        self.cbAttDic["marsDay"].setPlayRate(self.cbAttDic["marsDay"].getPlayRate()-1)
+        #mercury
+        self.cbAttDic["mercuryOrbit"].setPlayRate(self.cbAttDic["mercuryOrbit"].getPlayRate()-1)
+        self.cbAttDic["mercuryDay"].setPlayRate(self.cbAttDic["mercuryDay"].getPlayRate()-1)
+        #jupiter
+        self.cbAttDic["jupiterOrbit"].setPlayRate(self.cbAttDic["jupiterOrbit"].getPlayRate()-1)
+        self.cbAttDic["jupiterDay"].setPlayRate(self.cbAttDic["jupiterDay"].getPlayRate()-1)
+        #venus
+        self.cbAttDic["venusOrbit"].setPlayRate(self.cbAttDic["venusOrbit"].getPlayRate()-1)
+        self.cbAttDic["venusDay"].setPlayRate(self.cbAttDic["venusDay"].getPlayRate()-1)
 
     def handleEarth(self):
         self.togglePlanet("Earth", self.cbAttDic["earthDay"],
@@ -130,7 +174,7 @@ class ActionHandler(DirectObject):
             # jupiter
             if self.cbAttDic["jupiterDay"].isPlaying():
                 self.togglePlanet("jupiter", self.cbAttDic["jupiterDay"],
-                                  self.cbAttDic["jupiterOrbit"], self.mkeyEventText)
+                                  self.cbAttDic["jupiterOrbit"], self.jkeyEventText)
         else:
             #"The simulation is paused, so resume it
             print("Resuming Simulation")
@@ -160,20 +204,6 @@ class ActionHandler(DirectObject):
     # end handleMouseClick
 
     def togglePlanet(self, planet, day, orbit=None, text=None):
-        #if day.isPlaying():
-        #    print("Pausing " + planet)
-        #    state = " [PAUSED]"
-        #else:
-        #    print("Resuming " + planet)
-        #    state = " [RUNNING]"
-
-        # Update the onscreen text if it is given as an argument
-        #if text:
-        #    old = text.getText()
-            # strip out the last segment of text after the last white space
-            # and append the string stored in 'state'
-        #    text.setText(old[0:old.rfind(' ')] + state)
-
         # toggle the day interval
         self.toggleInterval(day)
         # if there is an orbit interval, toggle it
