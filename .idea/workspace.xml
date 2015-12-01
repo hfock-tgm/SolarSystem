@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80a9d9f1-d409-49fe-aee4-9813e8f8cc21" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SolarSystem.iml" afterPath="$PROJECT_DIR$/.idea/SolarSystem.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SolarSystem/CameraHandler.py" afterPath="$PROJECT_DIR$/src/SolarSystem/CameraHandler.py" />
     </list>
     <ignored path="SolarSystem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -746,7 +743,13 @@
       <option name="project" value="LOCAL" />
       <updated>1448971588838</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="start position is now set">
+      <created>1448974090624</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1448974090624</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -802,7 +805,8 @@
     <MESSAGE value="slowDown and speedUp Methodes were implemented in ActionHandler" />
     <MESSAGE value="implemented SpecialClass&#10;added a glowing effect to the sun" />
     <MESSAGE value="minor bugfixes (@speedUp &amp; @slowDown)" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor bugfixes (@speedUp &amp; @slowDown)" />
+    <MESSAGE value="start position is now set" />
+    <option name="LAST_COMMIT_MESSAGE" value="start position is now set" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
