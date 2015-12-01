@@ -59,13 +59,21 @@ class ActionHandler(DirectObject):
         self.resetSolarSystemText = self.genLabelText("[R]: Reset Solar System", 6)
 
 
+    def showLayoutAction(self):
+        self.instructionText.setText("[I]: Hide Instructions")
+        self.spaceKeyEventText.setText("[SPACE]: Toggle entire Solar System")
+        self.speedUpText.setText("[+]: SPEED UP!")
+        self.slowDownText.setText("[-]: slow down...")
+        self.toggleTextureText.setText("[T]: Toggle Texture")
+        self.resetSolarSystemText.setText("[R]: Reset Solar System")
+
     def hideLayoutAction(self):
-        self.instructionText.hide()
-        self.spaceKeyEventText.hide()
-        self.speedUpText.hide()
-        self.slowDownText.hide()
-        self.toggleTextureText.hide()
-        self.resetSolarSystemText.hide()
+        self.instructionText.setText("")
+        self.spaceKeyEventText.setText("")
+        self.speedUpText.setText("")
+        self.slowDownText.setText("")
+        self.toggleTextureText.setText("")
+        self.resetSolarSystemText.setText("")
 
         self.instructionText = self.genLabelText("[I]: Show Instructions", 1)
 
@@ -80,6 +88,19 @@ class ActionHandler(DirectObject):
         self.accept("t", self.toggleTex)
         self.accept("i", self.toggleInstructions)
         self.accept("r", self.resetSolarSystem)
+        self.accept("z", self.unlimit)
+        self.accept("b", self.borkoTex)
+        self.accept("x", self.teamTex)
+        self.accept("y", self.marmTex)
+        self.accept("c", self.brezinaTex)
+
+    def unlimit(self):
+        #earth
+        self.cbAttDic["earthOrbit"].setPlayRate(self.cbAttDic["earthOrbit"].getPlayRate()+100)
+        self.cbAttDic["earthDay"].setPlayRate(self.cbAttDic["earthDay"].getPlayRate()+100)
+        #moon
+        self.cbAttDic["moonOrbit"].setPlayRate(self.cbAttDic["moonOrbit"].getPlayRate()+100)
+        self.cbAttDic["moonDay"].setPlayRate(self.cbAttDic["moonDay"].getPlayRate()+100)
 
     def toggleInstructions(self):
         if self.instruction == True:
@@ -88,7 +109,7 @@ class ActionHandler(DirectObject):
             self.instruction = False
         elif self.instruction == False:
             print("False")
-            self.displayLayout()
+            self.showLayoutAction()
             self.instruction = True
 
     def speedUp(self):
@@ -274,39 +295,79 @@ class ActionHandler(DirectObject):
     def toggleTex(self):
         if (self.origTex == True):
             self.origTex = False
-
-            # toggle sun
-            self.cbAttTex["sunTex"] = loader.loadTexture("../../models/weiss.jpg")
-            self.cbAttTex["sun"].setTexture(self.cbAttTex["sunTex"], 1)
-
-            # toggle earth
-            self.cbAttTex["earthTex"] = loader.loadTexture("../../models/weiss.jpg")
-            self.cbAttTex["earth"].setTexture(self.cbAttTex["earthTex"], 1)
-
-            # toggle moon
-            self.cbAttTex["moonTex"] = loader.loadTexture("../../models/weiss.jpg")
-            self.cbAttTex["moon"].setTexture(self.cbAttTex["moonTex"], 1)
-
-            # toggle mars
-            self.cbAttTex["marsTex"] = loader.loadTexture("../../models/weiss.jpg")
-            self.cbAttTex["mars"].setTexture(self.cbAttTex["marsTex"], 1)
-
-            # toggle mercury
-            self.cbAttTex["mercuryTex"] = loader.loadTexture("../../models/weiss.jpg")
-            self.cbAttTex["mercury"].setTexture(self.cbAttTex["mercuryTex"], 1)
-
-            # toggle venus
-            self.cbAttTex["venusTex"] = loader.loadTexture("../../models/weiss.jpg")
-            self.cbAttTex["venus"].setTexture(self.cbAttTex["venusTex"], 1)
-
-            # toggle jupiter
-            self.cbAttTex["jupiterTex"] = loader.loadTexture("../../models/weiss.jpg")
-            self.cbAttTex["jupiter"].setTexture(self.cbAttTex["jupiterTex"], 1)
-
+            self.loadTex("weiss")
 
         else:
             self.origTex = True
-            # toggle sun
+            self.resumeToNormalTex()
+
+    def borkoTex(self):
+        if (self.origTex == True):
+            self.origTex = False
+            self.loadTex("borko")
+
+        else:
+            self.origTex = True
+            self.resumeToNormalTex()
+
+    def brezinaTex(self):
+        if (self.origTex == True):
+            self.origTex = False
+            self.loadTex("brezina")
+
+        else:
+            self.origTex = True
+            self.resumeToNormalTex()
+
+    def teamTex(self):
+        if (self.origTex == True):
+            self.origTex = False
+            self.loadTex("team")
+
+        else:
+            self.origTex = True
+            self.resumeToNormalTex()
+
+    def marmTex(self):
+        if (self.origTex == True):
+            self.origTex = False
+            self.loadTex("marm")
+
+        else:
+            self.origTex = True
+            self.resumeToNormalTex()
+
+    def loadTex(self, str):
+        # toggle sun
+            self.cbAttTex["sunTex"] = loader.loadTexture("../../models/%s.jpg" % str)
+            self.cbAttTex["sun"].setTexture(self.cbAttTex["sunTex"], 1)
+
+            # toggle earth
+            self.cbAttTex["earthTex"] = loader.loadTexture("../../models/%s.jpg" % str)
+            self.cbAttTex["earth"].setTexture(self.cbAttTex["earthTex"], 1)
+
+            # toggle moon
+            self.cbAttTex["moonTex"] = loader.loadTexture("../../models/%s.jpg" % str)
+            self.cbAttTex["moon"].setTexture(self.cbAttTex["moonTex"], 1)
+
+            # toggle mars
+            self.cbAttTex["marsTex"] = loader.loadTexture("../../models/%s.jpg" % str)
+            self.cbAttTex["mars"].setTexture(self.cbAttTex["marsTex"], 1)
+
+            # toggle mercury
+            self.cbAttTex["mercuryTex"] = loader.loadTexture("../../models/%s.jpg" % str)
+            self.cbAttTex["mercury"].setTexture(self.cbAttTex["mercuryTex"], 1)
+
+            # toggle venus
+            self.cbAttTex["venusTex"] = loader.loadTexture("../../models/%s.jpg" % str)
+            self.cbAttTex["venus"].setTexture(self.cbAttTex["venusTex"], 1)
+
+            # toggle jupiter
+            self.cbAttTex["jupiterTex"] = loader.loadTexture("../../models/%s.jpg" % str)
+            self.cbAttTex["jupiter"].setTexture(self.cbAttTex["jupiterTex"], 1)
+
+    def resumeToNormalTex(self):
+        # toggle sun
             self.cbAttTex["sunTex"] = loader.loadTexture("../../models/sun_1k_tex.jpg")
             self.cbAttTex["sun"].setTexture(self.cbAttTex["sunTex"], 1)
 
