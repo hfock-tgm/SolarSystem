@@ -8,6 +8,7 @@ class CelestialBody(object):
         self.cbAtt = []
         self.cbAttDic = {}
         self.cbAttTex = {}
+        self.specialSun = 0
 
     def loadAllCelestialBodys(self):
         self.loadSun()
@@ -43,6 +44,7 @@ class CelestialBody(object):
 
         self.cbAttTex["sunTex"] = self.sun_tex
         self.cbAttTex["sun"] = self.sun
+        self.specialSun = self.sun
     # end loadSun
 
     def rotateSun(self):

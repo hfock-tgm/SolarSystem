@@ -5,6 +5,7 @@ import CameraHandler
 import Universe
 import CelestialBody
 import ActionHandler
+import SpecialClass
 
 class Main(DirectObject):
     sizescale = 0.6
@@ -25,6 +26,8 @@ class Main(DirectObject):
 
     action = ActionHandler.ActionHandler(base, cb.cbAtt, cb.cbAttDic, cb.cbAttTex)
     action.initAll()
+
+    special = SpecialClass.SpecialClass(base, cb.specialSun);
 
 
     base.run()
