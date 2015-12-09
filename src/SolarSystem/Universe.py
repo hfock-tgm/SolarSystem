@@ -38,6 +38,7 @@ class Universe(object):
         plnp.setPos(0, 0, 3.8)
         render.setLight(plnp)
 
+
         plight2 = PointLight('plight')
         plight2.setColor(VBase4(0.8, 0.8, 0.8, 1))
         plnp2 = render.attachNewNode(plight2)

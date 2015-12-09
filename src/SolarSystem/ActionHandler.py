@@ -38,6 +38,7 @@ class ActionHandler(DirectObject):
         self.slowDownText = 0
         self.toggleTextureText = 0
         self.resetSolarSystemText = 0
+        self.speedText = 0
 
     def initAll(self):
         self.displayLayout()
@@ -52,12 +53,14 @@ class ActionHandler(DirectObject):
 
     def displayLayoutAction(self):
         self.instructionText = self.genLabelText("[I]: Hide Instructions", 1)
-        self.spaceKeyEventText = self.genLabelText("[SPACE]: Toggle entire Solar System", 2)
+        self.speedText = self.genLabelText("Speed x 1", 2)
         self.speedUpText = self.genLabelText("[+]: SPEED UP!", 3)
         self.slowDownText = self.genLabelText("[-]: slow down...", 4)
         self.toggleTextureText = self.genLabelText("[T]: Toggle Texture", 5)
         self.resetSolarSystemText = self.genLabelText("[R]: Reset Solar System", 6)
         self.easterEggText = self.genLabelText("[X, Y, C, B]: Something Special", 7)
+        self.spaceKeyEventText = self.genLabelText("[SPACE]: Toggle entire Solar System", 8)
+
 
 
     def showLayoutAction(self):
@@ -68,6 +71,7 @@ class ActionHandler(DirectObject):
         self.toggleTextureText.setText("[T]: Toggle Texture")
         self.resetSolarSystemText.setText("[R]: Reset Solar System")
         self.easterEggText.setText("[X, Y, C, B, V]: Something Special")
+        #self.speedText.setText("Speed x 1.0")
 
     def hideLayoutAction(self):
         self.instructionText.setText("")
@@ -77,6 +81,7 @@ class ActionHandler(DirectObject):
         self.toggleTextureText.setText("")
         self.resetSolarSystemText.setText("")
         self.easterEggText.setText("")
+        #self.speedText.setText("")
 
         self.instructionText = self.genLabelText("[I]: Show Instructions", 1)
 
@@ -118,6 +123,7 @@ class ActionHandler(DirectObject):
 
     def speedUp(self):
         print ("SpeedUP")
+
         if (self.cbAttDic["sunDay"].getPlayRate() == -1):
             #sun
             self.cbAttDic["sunDay"].setPlayRate(1)
@@ -163,7 +169,7 @@ class ActionHandler(DirectObject):
 
 
 
-
+        self.speedText.setText("Speed x %s" % self.cbAttDic["sunDay"].getPlayRate())
         print (self.cbAttDic["sunDay"].getPlayRate())
 
 
@@ -213,6 +219,7 @@ class ActionHandler(DirectObject):
             self.cbAttDic["venusDay"].setPlayRate(self.cbAttDic["venusDay"].getPlayRate()-1)
 
         print (self.cbAttDic["sunDay"].getPlayRate())
+        self.speedText.setText("Speed x %s" % self.cbAttDic["sunDay"].getPlayRate())
 
     def handleEarth(self):
         self.togglePlanet("Earth", self.cbAttDic["earthDay"],
@@ -404,4 +411,6 @@ class ActionHandler(DirectObject):
         #venus
         self.cbAttDic["venusOrbit"].setPlayRate(0)
         self.cbAttDic["venusDay"].setPlayRate(0)
+
+        self.speedText.setText("Speed x %s" % self.cbAttDic["sunDay"].getPlayRate())
 

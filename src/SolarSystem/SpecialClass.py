@@ -37,6 +37,3 @@ class SpecialClass(object):
         # Set lighting on teapot so steam doesn't get affected
         self.t.setLight(self.t.attachNewNode(directionalLight))
         self.t.setLight(self.t.attachNewNode(ambientLight))
-
-    def initFIRE(self):
-        pass
