@@ -10,10 +10,9 @@ class ActionHandler(DirectObject):
         return OnscreenText(text=text, pos=(0.06, -.06 * (i + 0.5)), fg=(1, 1, 1, 1),
                             parent=base.a2dTopLeft,align=TextNode.ALeft, scale=.05)
 
-    def __init__(self, base, cbAtt, cbAttDic, cbAttTex):
+    def __init__(self, base, cbAttDic, cbAttTex):
         DirectObject.__init__(self)
         self.base = base
-        self.cbAtt = cbAtt
         self.cbAttDic = cbAttDic
         self.cbAttTex = cbAttTex
 

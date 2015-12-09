@@ -19,19 +19,10 @@ class Universe(object):
         :return:
         '''
         self.base = base
+        self.initPointLight()
 
-        '''
-        light = render.attachNewNode(Spotlight("Spot"))
-        light.setPos(0, 0, 0)
-        light.node().setScene(render)
-        light.node().setShadowCaster(True)
-        light.node().showFrustum()
-        light.node()
-        light.node().getLens().setFov(10)
-        light.node().getLens().setNearFar(10, 50)
-        '''
-        #render.setShaderAuto()
 
+    def initPointLight(self):
         plight = PointLight('plight')
         plight.setColor(VBase4(0.8, 0.8, 0.8, 1))
         plnp = render.attachNewNode(plight)
@@ -71,12 +62,6 @@ class Universe(object):
         #render.setShaderAuto()
         base.setBackgroundColor(0, 0, 0)
         base.cam.lookAt(0, 0, 0)
-
-
-
-        # Important! Enable the shader generator.
-        # render.setShaderAuto()
-
 
     def initSky(self):
         # Load the model for the sky

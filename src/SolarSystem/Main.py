@@ -24,7 +24,7 @@ class Main(DirectObject):
     cb.loadAllCelestialBodys()
     cb.rotateAllCelestialBodys()
 
-    action = ActionHandler.ActionHandler(base, cb.cbAtt, cb.cbAttDic, cb.cbAttTex)
+    action = ActionHandler.ActionHandler(base, cb.cbAttDic, cb.cbAttTex)
     action.initAll()
 
     special = SpecialClass.SpecialClass(base, cb.specialSun);
